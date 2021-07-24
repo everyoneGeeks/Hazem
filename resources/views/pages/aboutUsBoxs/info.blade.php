@@ -1,4 +1,3 @@
-
 @extends('layout.app',['title'=>'aboutUsBox'] )
 @section('content')
 
@@ -10,9 +9,7 @@
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
-                <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle" src="{{asset($aboutUsBox->image)}}" alt="User profile picture">
-                </div>
+
 
                 <ul class="list-group list-group-unbordered mb-3">
                      <li class="list-group-item">

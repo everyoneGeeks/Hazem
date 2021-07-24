@@ -1,4 +1,3 @@
-
 @extends('layout.app',['title'=>'aboutUsBoxs '] )
 @section('content')
 
@@ -33,18 +32,9 @@
                     <input type="text" class="form-control" id="InputNameEn" value=" {{$aboutUsBox->description_ar}}" name="description_ar">
                   </div>
 
-                  <div class="form-group">
-
-                    <label for="InputFile"> صوره aboutUsBoxs </label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="InputFile" name="image">
-                        <label class="custom-file-label" for="InputFile"> </label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
-                    </div>
+                 <div class="form-group">
+                    <label for="InputNameEn"> icon </label>
+                    <input type="text" class="form-control" id="InputNameEn" value=" {{$aboutUsBox->image}}" name="image">
                   </div>
                   
                 <!-- /.card-body -->

@@ -67,10 +67,8 @@ class AboutUsBoxController extends Controller
 
         $aboutUsBox->name_ar=$request->name_ar;
         $aboutUsBox->description_ar=$request->description_ar;
+   $aboutUsBox->image=$request->image;
 
-        if($request->hasFile('image')){
-            $this->SaveFile($aboutUsBox,'image','image','upload/aboutUsBox');
-        }
         $aboutUsBox->save();
 
         Notify::success('تم تعديل بيانات  بنجاح', ' تعديل بيانات');

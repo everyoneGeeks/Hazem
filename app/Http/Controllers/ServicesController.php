@@ -101,10 +101,9 @@ class ServicesController extends Controller
         $services->name_ar=$request->name_ar;
         $services->description=$request->description;
         $services->description_ar=$request->description_ar;
+        $services->image=$request->image;
 
-        if($request->hasFile('image')){
-            $this->SaveFile($services,'image','image','upload/services');
-        }
+  
         $services->save();
 
         \Notify::success('تم تعديل بيانات  بنجاح', ' تعديل بيانات');

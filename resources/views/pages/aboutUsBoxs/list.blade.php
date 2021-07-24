@@ -1,4 +1,3 @@
-
 @extends('layout.app',['title'=>'about Us  '])
 @section('style')
   <!-- DataTables -->
@@ -22,7 +21,7 @@
             <th>description en </th>
 
             <th>description ar </th>
-            <th> image</th>
+
             <th>action</th>
         </tr>
         </thead>
@@ -33,7 +32,6 @@
 <th> <a href="/admin/aboutUsBox/info/{{$aboutUsBox->id}}">{{$aboutUsBox->name_ar}}</a></th>
 <th><a href="/admin/aboutUsBox/info/{{$aboutUsBox->id}}"> {{$aboutUsBox->description}}</a></th>
 <th><a href="/admin/aboutUsBox/info/{{$aboutUsBox->id}}"> {{$aboutUsBox->description_ar}}</a></th>
-<th><img src="{{asset($aboutUsBox->image)}}" width=50px > </th>
 <th><a href="/admin/aboutUsBox/edit/{{$aboutUsBox->id}}" class="btn btn-block btn-info btn-flat"> edit </a></th>
         </tr>
 
