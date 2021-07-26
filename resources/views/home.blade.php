@@ -5,16 +5,22 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>publish brand/</title>
+  <title>publish brand</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
-  <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  @foreach($headlines as $text)
+              @if($text->name == 'logo')
+              <link href="{{asset($text->value)}}" rel="icon">
+              <link href="{{asset($text->value)}}" rel="apple-touch-icon"> 
+          @endif
+            @endforeach
+
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet" type="text/css">
 
   <!-- Vendor CSS Files -->
   <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -53,7 +59,16 @@
               @endif
             @endforeach
 
-            <i class="icofont-phone"></i>  +     
+            <i class="icofont-phone"></i>  +           
+              @foreach($headlines as $text)
+              @if($text->name == 'phone')
+                
+               
+         {{$text->value}}
+            
+      
+              @endif
+            @endforeach
       </div>
       <div class="social-links">
       @foreach($headlines as $text)
@@ -125,6 +140,17 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
+        @if(app()->getLocale() == 'ar')
+
+        <li><a href="#contact">{{app()->getLocale() == 'ar' ? 'تواصل معانا ' : 'Contact Us'}}</a></li>
+          <li><a href="#team">{{app()->getLocale() == 'ar' ? 'الفريق' : 'Team'}}</a></li>
+          <li><a href="#portfolio">{{app()->getLocale() == 'ar' ? 'اعمالنا ' : 'Portfolio'}}</a></li>
+          <li><a href="#services">{{app()->getLocale() == 'ar' ? 'الخدمات ' : 'Services'}}</a></li>
+          <li><a href="#about">{{app()->getLocale() == 'ar' ? 'من نحن ' : 'About Us'}}</a></li>
+          <li class="active"><a href="#">{{app()->getLocale() == 'ar' ? 'الرئيسية' : 'home'}}</a></li>
+
+        @else 
+
           <li class="active"><a href="#">{{app()->getLocale() == 'ar' ? 'الرئيسية' : 'home'}}</a></li>
           <li><a href="#about">{{app()->getLocale() == 'ar' ? 'من نحن ' : 'About Us'}}</a></li>
           <li><a href="#services">{{app()->getLocale() == 'ar' ? 'الخدمات ' : 'Services'}}</a></li>
@@ -132,9 +158,11 @@
           <li><a href="#team">{{app()->getLocale() == 'ar' ? 'الفريق' : 'Team'}}</a></li>
           <li><a href="#contact">{{app()->getLocale() == 'ar' ? 'تواصل معانا ' : 'Contact Us'}}</a></li>
 
+        @endif
 
           <li style="
     margin-left: 19px;
+    top: 5px;
 "> 
           
           <div class="col-md-12">
@@ -164,7 +192,7 @@
               {{app()->getLocale() == 'ar' ?  $text->value_ar :$text->value }}
               @endif
             @endforeach</h2>
-      <a href="#about" class="btn-get-started scrollto">{{app()->getLocale() == 'ar' ? 'ابداء الان' : 'Get Started'}} </a>
+      <a href="#contact" class="btn-get-started scrollto">{{app()->getLocale() == 'ar' ? 'ابداء الان' : 'Get Started'}} </a>
     </div>
   </section><!-- End Hero -->
 
@@ -258,7 +286,7 @@
               {{app()->getLocale() == 'ar' ?  $text->value_ar :$text->value }}
               @endif
             @endforeach </p>
-          <a class="cta-btn" href="#">Call To Action</a>
+          <a class="cta-btn" href="#contact">Call To Action</a>
         </div>
 
       </div>
@@ -312,7 +340,7 @@
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up">
             <ul id="portfolio-flters">
 
-              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter="*" class="filter-active">{{app()->getLocale() == 'ar' ?  'الكل' :'All' }}</li>
               @foreach($services as $text)
               <li data-filter=".filter-{{$text->name}}"> {{app()->getLocale() == 'ar' ?  $text->name_ar :$text->name }}</li>
              
@@ -354,44 +382,7 @@
       </div>
     </section><!-- End Portfolio Section -->
 
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container">
 
-        <div class="section-title" data-aos="zoom-in">
-          <h3> <span>{{app()->getLocale() == 'ar' ? ' فريقنا ' : 'Team'}}</span></h3>
-          <p>@foreach($headlines as $text)
-              @if($text->name == 'Team')
-              {{app()->getLocale() == 'ar' ?  $text->value_ar :$text->value }}
-              @endif
-            @endforeach.</p>
-        </div>
-
-        <div class="row">
-        @foreach($Team as $text)
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up">
-              <div class="member-img">
-                <img src="{{$text->image}}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href="{{$text->facebook}}"><i class="icofont-twitter"></i></a>
-                  <a href="{{$text->linkedin}}"><i class="icofont-facebook"></i></a>
-                  <a href="{{$text->twiter}}"><i class="icofont-instagram"></i></a>
-                  <a href="{{$text->instgram}}"><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>{{$text->name}}/h4>
-                <span>{{$text->position}}</span>
-              </div>
-            </div>
-          </div>
-          @endforeach
-          
-        </div>
-
-      </div>
-    </section><!-- End Team Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
@@ -402,13 +393,6 @@
         @foreach($Testimonials as $Testimonial)
           <div class="testimonial-item">
             <img src="{{$Testimonial->image}}" class="testimonial-img" alt="">
-            <h3>{{$Testimonial->name}}</h3>
-            <h4>{{$Testimonial->clientType}}</h4>
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              {{$Testimonial->description}}
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
           </div>
 
         @endforeach
@@ -431,9 +415,15 @@
             @endforeach.</p>
         </div>
 
-        <div class="row">
 
-          <div class="col-lg-4 col-md-6">
+ <div class="owl-carousel pricing-carousel" data-aos="zoom-in">
+
+        <div class="row pricing-item">
+  <div class="col-lg-12">
+
+ pricing wow
+  </div>
+          <div class="col-lg-12  " >
             <div class="box" data-aos="zoom-in" data-aos-delay="200">
               <h3>Free</h3>
               <h4><sup>$</sup>0<span> / month</span></h4>
@@ -450,7 +440,24 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+          <div class="col-lg-12" >
+            <div class="box" data-aos="zoom-in" data-aos-delay="200">
+              <h3>Free</h3>
+              <h4><sup>$</sup>0<span> / month</span></h4>
+              <ul>
+                <li>Aida dere</li>
+                <li>Nec feugiat nisl</li>
+                <li>Nulla at volutpat dola</li>
+                <li class="na">Pharetra massa</li>
+                <li class="na">Massa ultricies mi</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12  ">
             <div class="box recommended" data-aos="zoom-in" data-aos-delay="100">
               <span class="recommended-badge">Recommended</span>
               <h3>Business</h3>
@@ -468,26 +475,77 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="200">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
+          
 
         </div>
 
+
+
+
+              <div class="row pricing-item">
+ 
+                  <div class="col-lg-12  " >
+                    <div class="box" data-aos="zoom-in" data-aos-delay="200">
+                      <h3>Free</h3>
+                      <h4><sup>$</sup>0<span> / month</span></h4>
+                      <ul>
+                        <li>Aida dere</li>
+                        <li>Nec feugiat nisl</li>
+                        <li>Nulla at volutpat dola</li>
+                        <li class="na">Pharetra massa</li>
+                        <li class="na">Massa ultricies mi</li>
+                      </ul>
+                      <div class="btn-wrap">
+                        <a href="#" class="btn-buy">Buy Now</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12  >
+                    <div class="box" data-aos="zoom-in" data-aos-delay="200">
+                      <h3>Free</h3>
+                      <h4><sup>$</sup>0<span> / month</span></h4>
+                      <ul>
+                        <li>Aida dere</li>
+                        <li>Nec feugiat nisl</li>
+                        <li>Nulla at volutpat dola</li>
+                        <li class="na">Pharetra massa</li>
+                        <li class="na">Massa ultricies mi</li>
+                      </ul>
+                      <div class="btn-wrap">
+                        <a href="#" class="btn-buy">Buy Now</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12 ">
+                    <div class="box recommended" data-aos="zoom-in" data-aos-delay="100">
+                      <span class="recommended-badge">Recommended</span>
+                      <h3>Business</h3>
+                      <h4><sup>$</sup>19<span> / month</span></h4>
+                      <ul>
+                        <li>Aida dere</li>
+                        <li>Nec feugiat nisl</li>
+                        <li>Nulla at volutpat dola</li>
+                        <li>Pharetra massa</li>
+                        <li class="na">Massa ultricies mi</li>
+                      </ul>
+                      <div class="btn-wrap">
+                        <a href="#" class="btn-buy">Buy Now</a>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+        </div>
+
+
+
       </div>
+      </div>
+
     </section><!-- End Pricing Section -->
 
 

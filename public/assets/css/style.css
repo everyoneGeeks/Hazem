@@ -570,7 +570,7 @@ section {
 }
 
 .about .video-box {
-  background: url("../img/about.jpg") center center no-repeat;
+  background: url("../img/218811278_342465584104682_7474283333641114366_n.jpg") center center no-repeat;
   background-size: cover;
   min-height: 400px;
 }
@@ -578,7 +578,7 @@ section {
 .about .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(#4090ae 50%, rgba(143, 192, 78, 0.4) 52%);
+  background: radial-gradient(#4090ae 50%, hsla(187, 82%, 44%, 0.4) 52%);
   border-radius: 50%;
   display: block;
   position: absolute;
@@ -619,7 +619,7 @@ section {
   animation-timing-function: steps;
   opacity: 1;
   border-radius: 50%;
-  border: 5px solid rgba(143, 192, 78, 0.7);
+  border: 5px solid  hsla(187, 82%, 44%, 0.4) ;
   top: -15%;
   left: -15%;
   background: rgba(198, 16, 0, 0);
@@ -785,7 +785,7 @@ section {
   margin: 0 auto;
   width: 64px;
   height: 64px;
-  background: #f3f8ec;
+  background: hsl(187deg 82% 44% / 22%);
   border-radius: 50px;
   border: 1px solid #4090ae;
   display: flex;
@@ -796,7 +796,7 @@ section {
 }
 
 .services .icon-box .icon i {
-  color: #bfdb99;
+  color: #4090ae;
   font-size: 28px;
   transition: ease-in-out 0.3s;
 }
