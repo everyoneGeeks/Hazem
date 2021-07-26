@@ -173,7 +173,7 @@ Auth::routes(['register' => false, 'verify' => false]);
 
 Route::get('/home','website@index');
 Route::get('/','website@index');
-
+Route::get('/portfolio/info/{id}','website@info');
 Route::get('/LangChange','website@LangChange')->name('LangChange');
 
 Route::post('/email/send','website@sendEmail');

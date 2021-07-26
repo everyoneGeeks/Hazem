@@ -52,6 +52,13 @@ $pricing4=pricing::where('id',4)->first();
 }
 
 
+public function info($id){
+    $headlines=headline::get();
+
+    $portfolio=portfolio::where('id',$id)->with('images')->first();
+    return view('info',compact('portfolio','headlines'));
+
+}
 
 public function LangChange(Request $request)
 {
