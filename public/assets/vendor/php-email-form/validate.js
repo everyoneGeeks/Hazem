@@ -131,15 +131,22 @@
       timeout: 40000
     }).done( function(msg){
       if (msg.trim() == 'OK') {
+            window.location.reload();
         this_form.find('.loading').slideUp();
         this_form.find('.sent-message').slideDown();
         this_form.find("input:not(input[type=submit]), textarea").val('');
       } else {
+                  window.location.reload();
+
         this_form.find('.loading').slideUp();
         if(!msg) {
+                    window.location.reload();
+
           msg = 'Form submission failed and no error message returned from: ' + action + '<br>';
         }
-        this_form.find('.error-message').slideDown().html(msg);
+            window.location.reload();
+
+      
       }
     }).fail( function(data){
       console.log(data);
@@ -158,7 +165,7 @@
         error_msg += data.responseText;
       }
       this_form.find('.loading').slideUp();
-      this_form.find('.error-message').slideDown().html(error_msg);
+            window.location.reload();
     });
   }
 

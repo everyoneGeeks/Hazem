@@ -9,6 +9,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+<meta name="csrf-token" content="{{ csrf_token() }}" />
   <!-- Favicons -->
   @foreach($headlines as $text)
               @if($text->name == 'logo')
@@ -544,10 +545,11 @@
               {{app()->getLocale() == 'ar' ?  $text->value_ar :$text->value }}
               @endif
             @endforeach</p>
-        </div>
 
         <div>
-          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1264.8400222634932!2d30.759905658071418!3d28.089859454832713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145b25a7d476c8c1%3A0x6660afcdb0f6a258!2sMohammed%20Badawi%2C%20Qism%20Minya%2C%20Al%20Minya%2C%20Menia%20Governorate!5e0!3m2!1sen!2seg!4v1627723489952!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>        </div>
+
         </div>
 
         <div class="row mt-5">
@@ -591,6 +593,7 @@
           <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
 
             <form action="/email/send" method="post" role="form" class="php-email-form">
+            <meta name="csrf-token" content="{{ csrf_token() }}" />
               <div class="form-row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -620,7 +623,9 @@
           </div>
 
         </div>
-
+      
+  </div>
+    
       </div>
     </section><!-- End Contact Section -->
 
@@ -723,7 +728,15 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>
+<script type="text/javascript">
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+</script>
   <script
+          
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
