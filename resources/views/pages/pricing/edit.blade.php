@@ -16,6 +16,24 @@
                   </div>
 
                   <div class="form-group">
+                        <label for="InputNameEn"> services  </label>
+              
+                        <select class="form-control" id="InputNameEn" name="services">
+
+                        @foreach($services as $service)
+                        @if($pricing->services == $service->id)
+                        <option value="{{$service->id}}" selected>{{$service->name}}</option>
+
+                        @else 
+                        <option value="{{$service->id}}">{{$service->name}}</option>
+
+                        @endif
+                        @endforeach
+
+                        </select>
+                      </div>  
+
+                  <div class="form-group">
                     <label for="InputNameEn"> price </label>
                     <input type="number" class="form-control" id="InputNameEn" value="{{$pricing->price}}" name="price">
                   </div>

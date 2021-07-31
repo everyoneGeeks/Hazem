@@ -178,16 +178,19 @@
     items: 1
   });
 
+  window.addEventListener("load", function () {
+    $('.pricing-carousel').owlCarousel({
+      autoPlay : 3000,
+      stopOnHover : true,
+      navigation:true,
+      paginationSpeed : 1000,
+      goToFirstSpeed : 2000,
+      singleItem : true,
+      autoHeight : true,
+      transitionStyle:"fade"
 
-    // Testimonials carousel (uses the Owl Carousel library)
-    $(".pricing-carousel").owlCarousel({
-      autoplay: true,
-      dots: true,
-      loop: true,
-      items: 3,
-      animateOut: 'slideOutDown',
-      animateIn: 'flipInX',
-        });
+    });
+  });
 
   // Portfolio details carousel
   $(".portfolio-details-carousel").owlCarousel({

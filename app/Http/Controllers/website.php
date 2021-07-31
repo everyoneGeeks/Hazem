@@ -30,21 +30,18 @@ class website extends Controller
 
 
 public function index(){
-$headlines=headline::get();
-$client=client::get();
-$aboutUsBox=aboutUsBox::get();
-$services=services::get();
-$portfolio=portfolio::with('images')->get();
-$Team=Team::get();
-$Testimonials=Testimonials::get();
-
-$pricing1=pricing::where('id',1)->first();
-$pricing2=pricing::where('id',2)->first();
-$pricing3=pricing::where('id',3)->first();
-$pricing4=pricing::where('id',4)->first();
+    $headlines=headline::get();
+    $client=client::get();
+    $aboutUsBox=aboutUsBox::get();
+    $services=services::get();
+    $portfolio=portfolio::with('images')->get();
+    $Team=Team::get();
+    $Testimonials=Testimonials::get();
+    $pricing=pricing::get();
 
 
-    return view('home',compact('headlines','client','pricing1','pricing2','pricing3','aboutUsBox','services','portfolio','Team','Testimonials'));
+
+    return view('home',compact('headlines','client','pricing','aboutUsBox','services','portfolio','Team','Testimonials'));
 
 
 

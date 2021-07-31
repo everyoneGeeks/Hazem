@@ -17,6 +17,7 @@
 <table id="example2" class="table table-bordered table-hover">
         <thead>
         <tr>
+          <th>services</th>
             <th>name  </th>
             <th>action</th>
         </tr>
@@ -24,6 +25,8 @@
         <tbody>  
 @foreach($pricings as $pricing)
         <tr>
+        <th> <a href="/admin/pricing/info/{{$pricing->id}}">{{$pricing->service->name}}</a></th>
+
 <th> <a href="/admin/pricing/info/{{$pricing->id}}">{{$pricing->name}}</a></th>
 <th><a href="/admin/pricing/edit/{{$pricing->id}}" class="btn btn-block btn-info btn-flat"> edit </a></th>
         </tr>

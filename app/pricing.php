@@ -10,5 +10,9 @@ class pricing extends Model
     protected $table="pricing";
     public $timestamps = false;
 
+    public function service(){
+        return $this->belongsTo('App\services','services');
+    }
+    
     
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\pricing;
+use App\services;
 use Illuminate\Http\Request;
 
 class PricingController extends Controller
@@ -14,7 +15,7 @@ class PricingController extends Controller
      */
     public function index()
     {
-        $pricings=pricing::get();
+        $pricings=pricing::with('service')->get();
         return view('pages.pricing.list',compact('pricings'));
     }
 
@@ -27,7 +28,8 @@ class PricingController extends Controller
      */
     public function show($id)
     {
-        $pricing=pricing::where('id',$id)->first();
+   
+        $pricing=pricing::where('id',$id)->with('service')->first();
         return view('pages.pricing.info',compact('pricing'));
     }
 
@@ -39,8 +41,9 @@ class PricingController extends Controller
      */
     public function edit($id)
     {
-        $pricing=pricing::where('id',$id)->first();
-        return view('pages.pricing.edit',compact('pricing'));
+        $services=services::get();
+        $pricing=pricing::where('id',$id)->with('service')->first();
+        return view('pages.pricing.edit',compact('pricing','services'));
     }
 
     /**
@@ -58,13 +61,17 @@ class PricingController extends Controller
         ];
         $request->validate($rules);
 
+
         $pricing=pricing::where('id',$id)->first();
+
         $pricing->name=$request->name;
         $pricing->price=$request->price;
         $pricing->date=$request->date;
         $pricing->list=$request->list;
-
+        $pricing->services=$request->services;
         $pricing->save();
+
+
 
 
         \Notify::success('تم تعديل بيانات  بنجاح', ' تعديل بيانات');

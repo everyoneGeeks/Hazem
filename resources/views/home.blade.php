@@ -21,6 +21,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" integrity="sha512-RWhcC19d8A3vE7kpXq6Ze4GcPfGe3DQWuenhXAbcGiZOaqGojLtWwit1eeM9jLGHFv8hnwpX3blJKGjTsf2HxQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css" integrity="sha512-itF/9I/NigY9u4ukjw9s7/kG6SC7LJ5Q4pRNMnTbGZAsO4/RSUelfVuYBk8AkSk23qEcucIqdUlzzpy2qf7jGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Vendor CSS Files -->
   <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -67,7 +69,7 @@
 </head>
 
 <body>
-<a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+<a href="https://api.whatsapp.com/send?phone=⁦01010782536⁩." class="float" target="_blank">
 <i class="fa fa-whatsapp my-float"></i>
 </a>
   <!-- ======= Top Bar ======= -->
@@ -428,6 +430,17 @@
       </div>
     </section><!-- End Testimonials Section -->
 
+
+
+
+
+
+
+
+
+
+
+
     <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
       <div class="container">
@@ -443,134 +456,77 @@
         </div>
 
 
- <div class="owl-carousel pricing-carousel" data-aos="zoom-in">
-
-        <div class="row pricing-item">
-  <div class="col-lg-12">
-
- pricing wow
-  </div>
-          <div class="col-lg-12  " >
-            <div class="box" data-aos="zoom-in" data-aos-delay="200">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-12" >
-            <div class="box" data-aos="zoom-in" data-aos-delay="200">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-12  ">
-            <div class="box recommended" data-aos="zoom-in" data-aos-delay="100">
-              <span class="recommended-badge">Recommended</span>
-              <h3>Business</h3>
-              <h4><sup>$</sup>19<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          
-
-        </div>
+ <div class="row" data-aos="zoom-in">
 
 
+ <div id=" col-lg-12 carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="
+    width: 100%;
+">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
 
 
-              <div class="row pricing-item">
+  <div class="carousel-inner">
+
+
+@foreach($pricing->chunk(3) as $chunk)
+
+@if($loop->first)
+    <div class="carousel-item active ">
+ @else 
+ <div class="carousel-item  ">
+
  
-                  <div class="col-lg-12  " >
-                    <div class="box" data-aos="zoom-in" data-aos-delay="200">
-                      <h3>Free</h3>
-                      <h4><sup>$</sup>0<span> / month</span></h4>
-                      <ul>
-                        <li>Aida dere</li>
-                        <li>Nec feugiat nisl</li>
-                        <li>Nulla at volutpat dola</li>
-                        <li class="na">Pharetra massa</li>
-                        <li class="na">Massa ultricies mi</li>
-                      </ul>
-                      <div class="btn-wrap">
-                        <a href="#" class="btn-buy">Buy Now</a>
-                      </div>
-                    </div>
-                  </div>
+ @endif
+    @foreach ($chunk as $value)
+    @if($loop->first)
+      <h1 class="text-center">{{app()->getLocale() == 'ar' ? $value->service->name_ar : $value->service->name}}</h1>
+      @endif
+    <div class="col-lg-4 " style="display: inline-block;width: 33%;" >
 
-                  <div class="col-lg-12  >
-                    <div class="box" data-aos="zoom-in" data-aos-delay="200">
-                      <h3>Free</h3>
-                      <h4><sup>$</sup>0<span> / month</span></h4>
-                      <ul>
-                        <li>Aida dere</li>
-                        <li>Nec feugiat nisl</li>
-                        <li>Nulla at volutpat dola</li>
-                        <li class="na">Pharetra massa</li>
-                        <li class="na">Massa ultricies mi</li>
-                      </ul>
-                      <div class="btn-wrap">
-                        <a href="#" class="btn-buy">Buy Now</a>
-                      </div>
-                    </div>
-                  </div>
+            <div class="box" data-aos="zoom-in" data-aos-delay="200">
+              <h3>{{$value->name}}</h3>
+              <h4><sup>$</sup>{{$value->price}}<span> / {{$value->date}}</span></h4>
+              <ul>
+              @foreach(explode(',', $value->list) as $info) 
+                <li>{{$info}}</li>
+              @endforeach
+              </ul>
+              <div class="btn-wrap">
+                <a href="https://api.whatsapp.com/send?phone=⁦01010782536⁩&text={{$value->service->name}}.{{$value->name}}" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
 
-                  <div class="col-lg-12 ">
-                    <div class="box recommended" data-aos="zoom-in" data-aos-delay="100">
-                      <span class="recommended-badge">Recommended</span>
-                      <h3>Business</h3>
-                      <h4><sup>$</sup>19<span> / month</span></h4>
-                      <ul>
-                        <li>Aida dere</li>
-                        <li>Nec feugiat nisl</li>
-                        <li>Nulla at volutpat dola</li>
-                        <li>Pharetra massa</li>
-                        <li class="na">Massa ultricies mi</li>
-                      </ul>
-                      <div class="btn-wrap">
-                        <a href="#" class="btn-buy">Buy Now</a>
-                      </div>
-                    </div>
-                  </div>
+         
+@endforeach
 
 
-                </div>
+</div>
 
-        </div>
+
+@endforeach
+
+   
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+    
 
 
 
-      </div>
+
       </div>
 
     </section><!-- End Pricing Section -->
@@ -679,25 +635,61 @@
 
         <div class="row  justify-content-center">
           <div class="col-lg-6">
-            <h3>Remember</h3>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+            <h3>follow us on  </h3>
           </div>
         </div>
 
-        <div class="row footer-newsletter justify-content-center">
-          <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
 
         <div class="social-links">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+
+
+        @foreach($headlines as $text)
+              @if($text->name == 'twitter')
+
+
+              <a href="{{$text->value}}" class="twitter"><i class="icofont-twitter"></i></a>
+      
+              @endif
+            @endforeach
+
+            @foreach($headlines as $text)
+              @if($text->name == 'facebook')
+
+
+              <a href="{{$text->value}}" class="facebook"><i class="icofont-facebook"></i></a>
+      
+              @endif
+            @endforeach
+
+
+            @foreach($headlines as $text)
+              @if($text->name == 'instagram')
+
+
+              <a href="{{$text->value}}" class="instagram"><i class="icofont-instagram"></i></a>
+      
+              @endif
+            @endforeach
+            
+            
+            @foreach($headlines as $text)
+              @if($text->name == 'behance')
+
+
+              <a href="{{$text->value}}" class="behance"><i class="icofont-behance"></i></a>
+      
+              @endif
+            @endforeach
+
+
+            @foreach($headlines as $text)
+              @if($text->name == 'vimeo')
+
+
+              <a href="{{$text->value}}" class="vimeo"><i class="icofont-vimeo"></i></a>
+      
+              @endif
+            @endforeach
         </div>
 
       </div>
@@ -705,14 +697,11 @@
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Remember</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>dotech-eg</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/remember-free-multipurpose-bootstrap-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+     
+        Designed by <a href="https://dotech-eg.com">dotech-eg</a>
       </div>
     </div>
   </footer><!-- End Footer -->
