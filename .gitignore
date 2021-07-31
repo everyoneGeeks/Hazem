@@ -14,3 +14,4 @@ yarn-error.log
 .htaccess
 /roundcube
 /stats
+/public/uploads
