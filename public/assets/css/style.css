@@ -570,7 +570,7 @@ section {
 }
 
 .about .video-box {
-  background: url("../img/218811278_342465584104682_7474283333641114366_n.jpg") center center no-repeat;
+  background: url("../img/vedio.jpg") center center no-repeat;
   background-size: cover;
   min-height: 400px;
 }
@@ -1117,6 +1117,12 @@ section {
   }
 }
 
+@media (min-width:992px) {
+  .price-lg{
+    display: inline-block;
+    width: 32%;
+  }
+}
 /*--------------------------------------------------------------
 # Pricing
 --------------------------------------------------------------*/

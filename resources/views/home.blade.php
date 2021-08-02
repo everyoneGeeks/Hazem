@@ -61,12 +61,6 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-  <!-- =======================================================
-  * Template Name: Remember - v2.2.1
-  * Template URL: https://bootstrapmade.com/remember-free-multipurpose-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -157,7 +151,7 @@
     <div class="container d-flex">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="#">
+        <h1 class="text-light"><a href="/">
 
         @foreach($headlines as $text)
               @if($text->name == 'logo')
@@ -177,11 +171,11 @@
           <li><a href="#portfolio">{{app()->getLocale() == 'ar' ? 'اعمالنا ' : 'Portfolio'}}</a></li>
           <li><a href="#services">{{app()->getLocale() == 'ar' ? 'الخدمات ' : 'Services'}}</a></li>
           <li><a href="#about">{{app()->getLocale() == 'ar' ? 'من نحن ' : 'About Us'}}</a></li>
-          <li class="active"><a href="#">{{app()->getLocale() == 'ar' ? 'الرئيسية' : 'home'}}</a></li>
+          <li class="active"><a href="/">{{app()->getLocale() == 'ar' ? 'الرئيسية' : 'home'}}</a></li>
 
         @else 
 
-          <li class="active"><a href="#">{{app()->getLocale() == 'ar' ? 'الرئيسية' : 'home'}}</a></li>
+          <li class="active"><a href="/">{{app()->getLocale() == 'ar' ? 'الرئيسية' : 'home'}}</a></li>
           <li><a href="#about">{{app()->getLocale() == 'ar' ? 'من نحن ' : 'About Us'}}</a></li>
           <li><a href="#services">{{app()->getLocale() == 'ar' ? 'الخدمات ' : 'Services'}}</a></li>
           <li><a href="#portfolio">{{app()->getLocale() == 'ar' ? 'اعمالنا ' : 'Portfolio'}}</a></li>
@@ -385,6 +379,8 @@
 
         @foreach($portfolio as $text)
           <div class="col-lg-4 col-md-6 portfolio-item filter-{{$text->services->name}}">
+          <a href="/portfolio/info/{{$text->id}}">
+
           @foreach($text->images as $img)
           @if($loop->first)
           <img src="{{$img->image}}" class="img-fluid" alt="">
@@ -402,6 +398,7 @@
             @endforeach
               <a href="/portfolio/info/{{$text->id}}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
+            </a>
           </div>
           @endforeach
 
@@ -462,6 +459,7 @@
 
  <div id=" col-lg-12 carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="
     width: 100%;
+    display: inline-block;
 ">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -486,7 +484,7 @@
     @if($loop->first)
       <h1 class="text-center">{{app()->getLocale() == 'ar' ? $value->service->name_ar : $value->service->name}}</h1>
       @endif
-    <div class="col-lg-4 " style="display: inline-block;width: 33%;" >
+    <div class="col-lg-4 price-lg col-sm-12 " style="margin-bottom: 10px;">
 
             <div class="box" data-aos="zoom-in" data-aos-delay="200">
               <h3>{{$value->name}}</h3>

@@ -127,7 +127,7 @@
     <div class="container d-flex">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="#">
+        <h1 class="text-light"><a href="/">
 
         @foreach($headlines as $text)
               @if($text->name == 'logo')
