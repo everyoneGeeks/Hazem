@@ -1,4 +1,3 @@
-
 @extends('layout.app',['title'=>'portfolio '] )
 @section('content')
 
@@ -36,6 +35,21 @@
                     <label for="InputNameEn"> date  </label>
                     <input type="date" class="form-control" id="InputNameEn" value="{{$portfolio->date}}" name="date">
                   </div>
+                
+                
+                
+                @if($portfolio->services->name == 'Videography' )
+                           <video controls autoplay width="300px" height="300px">
+           <source src="{{$portfolio->video}}" type="video/mp4">
+           </video>
+         <div class="form-group">               
+
+           <label for="InputNameEn"> video  </label>
+           <input type="file" class="form-control" id="InputNameEn"  name="video">
+          </div>
+                
+                @endif
+                
 
                   <div class="form-group">
                         <label for="InputNameEn"> services  </label>
@@ -71,7 +85,7 @@
       @endcomponent
 
 
-
+@if(!$portfolio->services->name == 'Videography')
       @component('components.panel',['subTitle'=>'   صور المنتج'])
 
 <div class="row">
@@ -113,5 +127,11 @@ enctype="multipart/form-data">
 @endslot
 
 @endcomponent
+
+
+@endif
+
+
+
 
  @endsection

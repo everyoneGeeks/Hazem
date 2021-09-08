@@ -58,9 +58,12 @@ class PortfolioController extends Controller
         $portfolio->services_id=$request->services;
         $portfolio->client=$request->client;  
         $portfolio->url=$request->url;   
-        $portfolio->date=$request->date;     
+        $portfolio->date=$request->date; 
+    	$this->SaveFile($portfolio,'video','video','upload/video');
         $portfolio->save();
      
+    	if($request->images !== null ){
+        
         foreach ($request->images as $image) {
             $portfolioImage=new portfolioImage;
             $portfolioImage->prortfolio_id=$portfolio->id;
@@ -73,7 +76,7 @@ class PortfolioController extends Controller
 
             $portfolioImage->save();
         }
-
+        }
 
         Notify::success('تم اضافة بيانات  بنجاح', 'اضافة بيانات  ');
 
@@ -131,7 +134,8 @@ class PortfolioController extends Controller
         $portfolio->services_id=$request->services;
         $portfolio->client=$request->client;  
         $portfolio->url=$request->url;   
-        $portfolio->date=$request->date;     
+        $portfolio->date=$request->date;    
+    $this->SaveFile($portfolio,'video','video','upload/video');
         $portfolio->save();
 
     }

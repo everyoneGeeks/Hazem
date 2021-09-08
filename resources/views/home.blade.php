@@ -167,7 +167,9 @@
         @if(app()->getLocale() == 'ar')
 
         <li><a href="#contact">{{app()->getLocale() == 'ar' ? 'تواصل معانا ' : 'Contact Us'}}</a></li>
-          <li><a href="#team">{{app()->getLocale() == 'ar' ? 'الفريق' : 'Team'}}</a></li>
+          <li><a href="#testimonials">{{app()->getLocale() == 'ar' ? 'عملانا' : 'Cleint'}}</a></li>
+           <li><a href="#pricing">{{app()->getLocale() == 'ar' ? 'اسعارنا ' : 'Pricing'}}</a></li>
+
           <li><a href="#portfolio">{{app()->getLocale() == 'ar' ? 'اعمالنا ' : 'Portfolio'}}</a></li>
           <li><a href="#services">{{app()->getLocale() == 'ar' ? 'الخدمات ' : 'Services'}}</a></li>
           <li><a href="#about">{{app()->getLocale() == 'ar' ? 'من نحن ' : 'About Us'}}</a></li>
@@ -179,7 +181,8 @@
           <li><a href="#about">{{app()->getLocale() == 'ar' ? 'من نحن ' : 'About Us'}}</a></li>
           <li><a href="#services">{{app()->getLocale() == 'ar' ? 'الخدمات ' : 'Services'}}</a></li>
           <li><a href="#portfolio">{{app()->getLocale() == 'ar' ? 'اعمالنا ' : 'Portfolio'}}</a></li>
-          <li><a href="#team">{{app()->getLocale() == 'ar' ? 'الفريق' : 'Team'}}</a></li>
+          <li><a href="#testimonials">{{app()->getLocale() == 'ar' ? 'عملانا' : 'Cleint'}}</a></li>
+           <li><a href="#pricing">{{app()->getLocale() == 'ar' ? 'اسعارنا ' : 'Pricing'}}</a></li>
           <li><a href="#contact">{{app()->getLocale() == 'ar' ? 'تواصل معانا ' : 'Contact Us'}}</a></li>
 
         @endif
@@ -387,6 +390,11 @@
 
           @endif
             @endforeach
+          @if($text->video) 
+          <video width="400" controls="controls" preload="metadata">
+  <source src="{{$text->video}}#t=0.5" type="video/mp4">
+</video>
+          @endif
             <div class="portfolio-info">
               <h4>{{app()->getLocale() == 'ar' ?  $text->name_ar :$text->name }}</h4>
               <p>{{app()->getLocale() == 'ar' ?  $text->description_ar :$text->description }}</p>

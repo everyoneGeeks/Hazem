@@ -1,4 +1,3 @@
-
 @extends('layout.app',['title'=>'portfolio '] )
 @section('content')
 @component('components.error',['errors'=>$errors ?? NULL]) @endcomponent
@@ -63,6 +62,25 @@
                         </div>
                       </div>
                  
+                     
+                     
+                     
+                      <div class="form-group">
+
+                        <label for="InputFile"> video services </label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="InputFile" name="video">
+                            <label class="custom-file-label" for="InputFile"> </label>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text" id="">Upload</span>
+                          </div>
+                        </div>
+                      </div>
+                     
+                     
+                     
                 <!-- /.card-body -->
 
                 <div class="card-footer">

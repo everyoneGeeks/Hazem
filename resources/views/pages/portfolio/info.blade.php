@@ -1,4 +1,3 @@
-
 @extends('layout.app',['title'=>'portfolio'] )
 @section('content')
 
@@ -18,7 +17,10 @@
                 </div>
 
 
-
+<video controls autoplay wight="300px" height="300px">
+  <source src="{{$portfolio->video}}" type="video/mp4">
+</video>
+              
 
                 <ul class="list-group list-group-unbordered mb-3">
                      <li class="list-group-item">

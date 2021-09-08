@@ -142,21 +142,23 @@
         <ul>
         @if(app()->getLocale() == 'ar')
 
-        <li><a href="#contact">{{app()->getLocale() == 'ar' ? 'تواصل معانا ' : 'Contact Us'}}</a></li>
-          <li><a href="#team">{{app()->getLocale() == 'ar' ? 'الفريق' : 'Team'}}</a></li>
-          <li><a href="#portfolio">{{app()->getLocale() == 'ar' ? 'اعمالنا ' : 'Portfolio'}}</a></li>
-          <li><a href="#services">{{app()->getLocale() == 'ar' ? 'الخدمات ' : 'Services'}}</a></li>
-          <li><a href="#about">{{app()->getLocale() == 'ar' ? 'من نحن ' : 'About Us'}}</a></li>
+        <li><a href="/">{{app()->getLocale() == 'ar' ? 'تواصل معانا ' : 'Contact Us'}}</a></li>
+          <li><a href="/">{{app()->getLocale() == 'ar' ? 'عملانا' : 'Cleint'}}</a></li>
+           <li><a href="/">{{app()->getLocale() == 'ar' ? 'اسعارنا ' : 'Pricing'}}</a></li>
+          <li><a href="/">{{app()->getLocale() == 'ar' ? 'اعمالنا ' : 'Portfolio'}}</a></li>
+          <li><a href="/">{{app()->getLocale() == 'ar' ? 'الخدمات ' : 'Services'}}</a></li>
+          <li><a href="/">{{app()->getLocale() == 'ar' ? 'من نحن ' : 'About Us'}}</a></li>
           <li class="active"><a href="/">{{app()->getLocale() == 'ar' ? 'الرئيسية' : 'home'}}</a></li>
 
         @else 
 
           <li class="active"><a href="/">{{app()->getLocale() == 'ar' ? 'الرئيسية' : 'home'}}</a></li>
-          <li><a href="#about">{{app()->getLocale() == 'ar' ? 'من نحن ' : 'About Us'}}</a></li>
-          <li><a href="#services">{{app()->getLocale() == 'ar' ? 'الخدمات ' : 'Services'}}</a></li>
-          <li><a href="#portfolio">{{app()->getLocale() == 'ar' ? 'اعمالنا ' : 'Portfolio'}}</a></li>
-          <li><a href="#team">{{app()->getLocale() == 'ar' ? 'الفريق' : 'Team'}}</a></li>
-          <li><a href="#contact">{{app()->getLocale() == 'ar' ? 'تواصل معانا ' : 'Contact Us'}}</a></li>
+          <li><a href="/">{{app()->getLocale() == 'ar' ? 'من نحن ' : 'About Us'}}</a></li>
+          <li><a href="/">{{app()->getLocale() == 'ar' ? 'الخدمات ' : 'Services'}}</a></li>
+          <li><a href="/">{{app()->getLocale() == 'ar' ? 'اعمالنا ' : 'Portfolio'}}</a></li>
+          <li><a href="/">{{app()->getLocale() == 'ar' ? 'عملانا' : 'Cleint'}}</a></li>
+           <li><a href="/">{{app()->getLocale() == 'ar' ? 'اسعارنا ' : 'Pricing'}}</a></li>
+          <li><a href="/">{{app()->getLocale() == 'ar' ? 'تواصل معانا ' : 'Contact Us'}}</a></li>
 
         @endif
 
@@ -188,8 +190,14 @@
             @foreach($portfolio->images as $portfolioImg)
             <img src="{{asset($portfolioImg->image)}}" class="img-fluid" alt="">
             @endforeach
+          
           </div>
-
+        
+        @if($portfolio->services->name == 'Videography')
+                  <video width="400" controls="controls">
+  					<source src="{{$portfolio->video}}" type="video/mp4">
+		    	</video>
+		@endif 
           <div class="portfolio-info" style="
     text-align: right;
 ">
